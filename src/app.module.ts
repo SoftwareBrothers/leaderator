@@ -11,15 +11,16 @@ import { FieldModule } from './field/field.module';
 import { BullQueueModule } from './bull-queue/bull-queue.module';
 
 @Module({
-  imports: [
-    ConfigModule.load(path.resolve(__dirname, 'config', '**/!(*.d).{ts,js}')),
-    UserModule,
-    AuthModule,
-    TypeOrmModule.forRoot(ormconfig),
-    ProspectModule,
-    FieldModule,
-    // BullQueueModule
-  ],
-  controllers: [AppController],
+    imports: [
+        ConfigModule.load(path.resolve(__dirname, 'config', '**/!(*.d).{ts,js}')),
+        UserModule,
+        AuthModule,
+        TypeOrmModule.forRoot(ormconfig),
+        ProspectModule,
+        FieldModule,
+        // BullQueueModule
+    ],
+    controllers: [AppController],
+
 })
 export class AppModule {}

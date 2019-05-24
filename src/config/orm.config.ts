@@ -13,6 +13,7 @@ const config: TypeOrmModuleOptions = {
     __dirname + '/src/migration/*{.ts,.js}',
   ],
   synchronize: false,
+
 };
 
 export default config;

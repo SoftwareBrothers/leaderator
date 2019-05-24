@@ -3,8 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Prospect } from './prospect.entity';
 import { ProspectService } from './prospect.service';
 import { ProspectController } from './prospect.controller';
-import { ReplayIoModule } from './replay-io/replay-io.module';
-import { ReplayIoService } from './replay-io/replay-io.service';
+import { ReplayIoModule } from './reply-io/reply-io.module';
+import { ReplayIoService } from './reply-io/reply-io.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Prospect]), ReplayIoModule],

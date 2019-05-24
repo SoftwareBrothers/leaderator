@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ReplayIoService } from './replay-io.service';
+import { ReplyIoService } from './reply-io.service';
 
 describe('ReplayIoService', () => {
-  let service: ReplayIoService;
+  let service: ReplyIoService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ReplayIoService],
+      providers: [ReplyIoService],
     }).compile();
 
-    service = module.get<ReplayIoService>(ReplayIoService);
+    service = module.get<ReplyIoService>(ReplyIoService);
   });
 
   it('should be defined', () => {

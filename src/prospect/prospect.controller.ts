@@ -1,23 +1,16 @@
-import {
-  Controller,
-  Get,
-  HttpException,
-  HttpStatus,
-  Post,
-  Query,
-  Body,
-} from '@nestjs/common';
-import { ProspectService } from './prospect.service';
-import { VerifyDomainDto } from './verify-domain.prospect.dto';
-import { CreateProspectDto } from './create.prospect.dto';
-import { ReplayIoService } from './replay-io/replay-io.service';
+import {CreateProspectDto} from './create.prospect.dto';
+import {Controller, Get, Post, HttpException, HttpStatus, Query, Body} from '@nestjs/common';
+import {ProspectService} from './prospect.service';
+import {VerifyDomainDto} from './verify-domain.prospect.dto';
+import {ReplyIoService} from './reply-io/reply-io.service';
 
 @Controller('prospects')
 export class ProspectController {
-  constructor(
-    private readonly prospectService: ProspectService,
-    private readonly replayIoService: ReplayIoService,
-  ) {}
+    constructor(
+        private readonly prospectService: ProspectService,
+        private readonly replayIoService: ReplyIoService,
+    ) {
+    }
 
   @Post()
   store(@Body() createProspectDto: CreateProspectDto): Promise<any> {
