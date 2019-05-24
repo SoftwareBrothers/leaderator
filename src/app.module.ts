@@ -1,12 +1,24 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { DomainController } from './domain/domain.controller';
-import { DomainService } from './domain/domain.service';
+import { ConfigModule } from './config/config.module';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [],
+  imports: [
+    ConfigModule,
+    UserModule,
+    AuthModule,
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'datdbabase.db',
+      synchronize: true,
+      logging: false,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    }),
+  ],
   controllers: [AppController, DomainController],
-  providers: [AppService, DomainService],
 })
 export class AppModule {}
