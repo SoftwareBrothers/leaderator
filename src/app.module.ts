@@ -1,16 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { DomainController } from './domain/domain.controller';
+import { ProspectController } from './prospect/prospect.controller';
 import { ConfigModule } from './config/config.module';
-import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { ProspectModule } from './prospect/prospect.module';
+import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    ConfigModule,
-    UserModule,
     AuthModule,
+    ConfigModule,
+    ProspectModule,
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'datdbabase.db',
@@ -18,7 +19,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       logging: false,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
     }),
+    UserModule,
   ],
-  controllers: [AppController, DomainController],
+  controllers: [AppController, ProspectController],
 })
 export class AppModule {}
