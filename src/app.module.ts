@@ -1,22 +1,21 @@
 import {Module} from '@nestjs/common';
 import {AppController} from './app.controller';
-import {ConfigModule} from './config/config.module';
 import {UserModule} from './user/user.module';
 import {AuthModule} from './auth/auth.module';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {ProspectController} from "./prospect/prospect.controller";
-import {ProspectModule} from "./prospect/prospect.module";
-
+import {ProspectModule} from './prospect/prospect.module';
+import { ConfigModule } from 'nestjs-config';
+import * as path from 'path';
 
 @Module({
     imports: [
-        ConfigModule,
+        ConfigModule.load(path.resolve(__dirname, 'config', '**/!(*.d).{ts,js}')),
         UserModule,
         AuthModule,
         TypeOrmModule.forRoot(),
         ProspectModule,
     ],
-    controllers: [AppController, ProspectController],
+    controllers: [AppController],
 })
 export class AppModule {
 }
