@@ -8,6 +8,10 @@ const config: TypeOrmModuleOptions = {
   password: process.env.TYPEORM_PASSWORD,
   database: process.env.TYPEORM_DATABASE,
   entities: [__dirname + '/../**/**.entity{.ts,.js}'],
+  migrations: [
+    __dirname + '/../migration/*{.ts,.js}',
+    __dirname + '/src/migration/*{.ts,.js}',
+  ],
   synchronize: false,
 };
 

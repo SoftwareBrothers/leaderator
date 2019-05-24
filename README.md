@@ -30,6 +30,11 @@ $ yarn start:prod
 $ yarn typeorm migration:run
 ```
 
+- for sync db schema
+```bash
+$ yarn typeorm schema:sync
+```
+
 - for generate migration:
 ```bash
 $ yarn typeorm migration:generate -n EntityName
