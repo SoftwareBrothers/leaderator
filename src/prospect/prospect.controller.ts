@@ -1,6 +1,6 @@
 import {Controller, Get, HttpException, HttpStatus, Query} from '@nestjs/common';
 import { ProspectService } from './prospect.service';
-import {VerifyDomainDto} from "./verifyDomain.prospect.dto";
+import {VerifyDomainDto} from "./verify-domain.prospect.dto";
 
 @Controller('prospect')
 export class ProspectController {
