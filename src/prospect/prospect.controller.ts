@@ -10,7 +10,7 @@ export class ProspectController {
   @Get('domain/verify')
   verifyDomain(@Query() verifyDomainDto: VerifyDomainDto): Promise<any> {
 
-    return this.prospectService.findByDomain(verifyDomainDto.domain).then(prospectObject => {
+    return this.prospectService.verifyDomain(verifyDomainDto.domain).then(prospectObject => {
       if (prospectObject) {
         throw new HttpException('Already exists in database', HttpStatus.UNPROCESSABLE_ENTITY);
       }

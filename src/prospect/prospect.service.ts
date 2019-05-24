@@ -9,7 +9,10 @@ export class ProspectService {
     @InjectRepository(Prospect) private prospectRepository: Repository<Prospect>,
   ) {}
 
-  async findByDomain(domain: string): Promise<Prospect> {
+  async verifyDomain(domain: string): Promise<Prospect> {
+
+    domain = domain.replace(/^(http(s)?:\/\/)/gi, '');
+
     return await this.prospectRepository.findOne({
       where: {
         domain: domain,
