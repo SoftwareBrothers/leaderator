@@ -8,6 +8,11 @@ services:
       - .env
     ports:
       - "3306:3306"
+  redis:
+    image: redis:alpine
+    container_name: leaderator-redis
+    ports:
+      - 6379:6379
   node:
     image: node:latest
     container_name: leaderator-app

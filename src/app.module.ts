@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProspectModule } from './prospect/prospect.module';
 import { FieldModule } from './field/field.module';
+import { BullQueueModule } from './bull-queue/bull-queue.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { FieldModule } from './field/field.module';
     TypeOrmModule.forRoot(),
     ProspectModule,
     FieldModule,
+    BullQueueModule,
   ],
   controllers: [AppController],
 })
