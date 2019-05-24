@@ -14,6 +14,7 @@ export class CreateProspectDto {
   @IsNotEmpty()
   readonly company: string;
 
+  @IsNotEmpty()
   readonly domain: string;
 
   @IsNotEmpty()

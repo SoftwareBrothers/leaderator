@@ -16,7 +16,7 @@ import { BullQueueModule } from './bull-queue/bull-queue.module';
     TypeOrmModule.forRoot(),
     ProspectModule,
     FieldModule,
-    BullQueueModule,
+    // BullQueueModule,
   ],
   controllers: [AppController],
 })

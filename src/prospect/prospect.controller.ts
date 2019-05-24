@@ -5,6 +5,7 @@ import {
   HttpStatus,
   Post,
   Query,
+  Body,
 } from '@nestjs/common';
 import { ProspectService } from './prospect.service';
 import { VerifyDomainDto } from './verify-domain.prospect.dto';
@@ -15,7 +16,9 @@ export class ProspectController {
   constructor(private readonly prospectService: ProspectService) {}
 
   @Post()
-  store(@Query() createProspectDto: CreateProspectDto): Promise<any> {
+  store(@Body() createProspectDto: CreateProspectDto): Promise<any> {
+    console.log('controller');
+    console.log(createProspectDto);
     return this.prospectService.store(createProspectDto);
   }
 
