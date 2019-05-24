@@ -1,4 +1,4 @@
-import {Controller, Get, Query } from '@nestjs/common';
+import {Controller, Get, HttpException, HttpStatus, Query} from '@nestjs/common';
 import {EmailService} from './email.service';
 import {EmailVerifyDto} from './email-verify.dto';
 
@@ -8,6 +8,10 @@ export class EmailController {
 
     @Get('verify')
     verify(@Query() emailVerifyDto: EmailVerifyDto) {
-        return this.emailService.verify(emailVerifyDto);
+        try {
+            return this.emailService.verify(emailVerifyDto);
+        } catch (e) {
+            throw new HttpException(e.message, e.status);
+        }
     }
 }
