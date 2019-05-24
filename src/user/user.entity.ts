@@ -1,4 +1,10 @@
-import {Entity, Column, PrimaryGeneratedColumn, BeforeInsert, Unique} from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BeforeInsert,
+  Unique,
+} from 'typeorm';
 import * as argon2 from 'argon2';
 
 @Entity()

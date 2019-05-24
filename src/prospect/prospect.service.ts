@@ -2,15 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Prospect } from './prospect.entity';
+import { CreateProspectDto } from './create.prospect.dto';
 
 @Injectable()
 export class ProspectService {
   constructor(
-    @InjectRepository(Prospect) private prospectRepository: Repository<Prospect>,
+    @InjectRepository(Prospect)
+    private prospectRepository: Repository<Prospect>,
   ) {}
 
-  async verifyDomain(domain: string): Promise<Prospect> {
+  async store(createProspectDto: CreateProspectDto): Promise<Prospect> {
+    return await this.prospectRepository.save(createProspectDto);
+  }
 
+  async verifyDomain(domain: string): Promise<Prospect> {
     domain = domain.replace(/^(http(s)?:\/\/)/gi, '');
 
     return await this.prospectRepository.findOne({

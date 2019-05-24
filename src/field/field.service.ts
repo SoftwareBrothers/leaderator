@@ -14,7 +14,6 @@ export class FieldService {
   ) {}
 
   async get(): Promise<any> {
-
     const titles = await this.titleRepository.find();
     const countries = await this.countryRepository.find();
     const cities = await this.cityRepository.find();
@@ -22,9 +21,7 @@ export class FieldService {
     return {
       titles,
       countries,
-      cities
+      cities,
     };
-
   }
-
 }
