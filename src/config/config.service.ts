@@ -16,17 +16,4 @@ export class ConfigService {
         return this.get('SECRET_KEY');
     }
 
-    getDB(dir: string): object {
-        return {
-            type: this.get('TYPEORM_CONNECTION') || 'mysql',
-            host: this.get('TYPEORM_HOST') || 'localhost',
-            port: this.get('TYPEORM_PORT') || 3306,
-            username: this.get('TYPEORM_USERNAME'),
-            password: this.get('TYPEORM_PASSWORD'),
-            database: this.get('TYPEORM_DATABASE'),
-            entities: [dir + '/**/*.entity{.ts,.js}'],
-            synchronize: this.get('TYPEORM_SYNCHRONIZE'),
-        };
-    }
-
 }
