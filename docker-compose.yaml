@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  db:
+    image: mariadb:latest
+    container_name: leaderator-db
+    restart: always
+    volumes:
+      - './docker/database:/var/lib/mysql'
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+  node:
+    image: node:latest
+    container_name: leaderator-app
+    working_dir: /home/node/app
+    restart: always
+    volumes:
+      - ./:/home/node/app
+    links:
+      - "db:mysql"
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    command: "npm start:dev"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
