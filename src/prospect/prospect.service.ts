@@ -12,7 +12,6 @@ export class ProspectService {
   ) {}
 
   async store(createProspectDto: CreateProspectDto): Promise<Prospect> {
-
     // new Prospect({
     //   firstName: createProspectDto.firstName
     // });

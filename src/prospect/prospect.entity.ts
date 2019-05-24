@@ -5,13 +5,13 @@ export class Prospect {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   vip: boolean;
 
   @Column()
   firstName: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   secondName: string;
 
   @Column()
@@ -38,12 +38,12 @@ export class Prospect {
   @Column()
   city: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   address: string;
 
   @Column()
   foundOn: string;
 
-  @Column({nullable: true, type: 'text'})
+  @Column({ nullable: true, type: 'text' })
   note: string;
 }

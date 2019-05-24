@@ -7,4 +7,4 @@ export const ApplicationContext = async () => {
     context = await NestFactory.create(AppModule);
   }
   return context;
-}
+};

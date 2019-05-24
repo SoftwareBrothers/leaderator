@@ -10,10 +10,14 @@ import {
 import { ProspectService } from './prospect.service';
 import { VerifyDomainDto } from './verify-domain.prospect.dto';
 import { CreateProspectDto } from './create.prospect.dto';
+import { ReplayIoService } from './replay-io/replay-io.service';
 
 @Controller('prospects')
 export class ProspectController {
-  constructor(private readonly prospectService: ProspectService) {}
+  constructor(
+    private readonly prospectService: ProspectService,
+    private readonly replayIoService: ReplayIoService,
+  ) {}
 
   @Post()
   store(@Body() createProspectDto: CreateProspectDto): Promise<any> {
@@ -36,5 +40,10 @@ export class ProspectController {
 
         return;
       });
+  }
+
+  @Get('list')
+  async list(): Promise<any> {
+    return this.replayIoService.listContacts();
   }
 }
