@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "node_modules/.bin/ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "@nestjs/common": "^6.0.0",
@@ -26,7 +27,6 @@
     "@nestjs/platform-express": "^6.0.0",
     "@nestjs/typeorm": "^6.1.1",
     "argon2": "^0.23.0",
-    "bcrypt": "^3.0.6",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.9.1",
     "dotenv": "^8.0.0",
@@ -50,7 +50,7 @@
     "prettier": "^1.15.3",
     "supertest": "^3.4.1",
     "ts-jest": "24.0.2",
-    "ts-node": "8.1.0",
+    "ts-node": "^8.1.0",
     "tsconfig-paths": "3.8.0",
     "tslint": "5.16.0",
     "typescript": "3.4.3",
