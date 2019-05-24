@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert } from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, BeforeInsert, Unique} from 'typeorm';
 import * as argon2 from 'argon2';
 
 @Entity()
+@Unique(['email'])
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
