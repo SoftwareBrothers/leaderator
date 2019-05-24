@@ -9,17 +9,17 @@ import { User } from 'src/user/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-    imports: [
+  imports: [
     JwtModule.registerAsync({
-        imports: [ConfigModule],
-        useFactory: async (configService: ConfigService) => ({
-          secretOrPrivateKey: configService.getSecrectToken(),
-        }),
-        inject: [ConfigService],
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        secretOrPrivateKey: configService.getSecrectToken(),
+      }),
+      inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([User])
-    ],
-    providers: [AuthService, UserService],
-    controllers: [AuthController]
+    TypeOrmModule.forFeature([User]),
+  ],
+  providers: [AuthService, UserService],
+  controllers: [AuthController],
 })
-export class AuthModule { }
+export class AuthModule {}
