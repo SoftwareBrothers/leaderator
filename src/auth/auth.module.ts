@@ -13,7 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        secretOrPrivateKey: configService.getSecrectToken(),
+        secretOrPrivateKey: configService.getSecretToken(),
       }),
       inject: [ConfigService],
     }),

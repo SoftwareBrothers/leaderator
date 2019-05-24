@@ -16,6 +16,7 @@ export class User {
   async hashPassword() {
     this.password = await argon2.hash(this.password);
   }
+
   @Column()
   password: string;
 }
