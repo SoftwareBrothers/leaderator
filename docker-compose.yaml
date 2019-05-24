@@ -4,8 +4,6 @@ services:
     image: mariadb:latest
     container_name: leaderator-db
     restart: always
-    volumes:
-      - './docker/database:/var/lib/mysql'
     env_file:
       - .env
     ports:
@@ -21,9 +19,7 @@ services:
       - "db:mysql"
     ports:
       - "3000:3000"
-    expose:
-      - "3000"
-    command: "npm start:dev"
+    command: "npm start"
     depends_on:
       - db
     env_file:
