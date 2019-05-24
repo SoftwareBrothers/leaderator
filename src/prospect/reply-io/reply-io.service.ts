@@ -4,16 +4,21 @@ import {map} from 'rxjs/operators';
 import {Prospect} from '../prospect.entity';
 
 @Injectable()
-export class ReplayIoService {
-    constructor(private readonly httpService: HttpService) {
+export class ReplyIoService {
+    constructor(private readonly http: HttpService) {
     }
 
     listContacts(): Observable<Prospect[]> {
-        return this.httpService.get('/people').pipe(
+        return this.http.get('/people').pipe(
             map(response => response.data),
         );
     }
 
-    create() {
+    async create(prospect: Prospect) {
+        try {
+           await this.http.post('/people', {prospect});
+        } catch (e) {
+            throw new Error('');
+        }
     }
 }

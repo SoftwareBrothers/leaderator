@@ -3,12 +3,12 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 import {Prospect} from './prospect.entity';
 import {ProspectService} from './prospect.service';
 import {ProspectController} from './prospect.controller';
-import { ReplayIoModule } from './replay-io/replay-io.module';
-import {ReplayIoService} from './replay-io/replay-io.service';
+import {ReplyIoModule } from './reply-io/reply-io.module';
+import {ReplyIoService} from './reply-io/reply-io.service';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Prospect]), ReplayIoModule],
-    providers: [ProspectService, ReplayIoService],
+    imports: [TypeOrmModule.forFeature([Prospect]), ReplyIoModule],
+    providers: [ProspectService, ReplyIoService],
     exports: [ProspectService],
     controllers: [ProspectController],
 })

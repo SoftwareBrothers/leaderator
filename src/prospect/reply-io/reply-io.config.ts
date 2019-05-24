@@ -2,7 +2,7 @@ import {HttpModuleOptions, HttpModuleOptionsFactory, Injectable} from '@nestjs/c
 import {ConfigService} from 'nestjs-config';
 
 @Injectable()
-export class ReplayIoConfig implements HttpModuleOptionsFactory {
+export class ReplyIoConfig implements HttpModuleOptionsFactory {
 
     constructor(private readonly config: ConfigService) {
     }

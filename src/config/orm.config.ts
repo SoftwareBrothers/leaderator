@@ -9,6 +9,11 @@ const config: TypeOrmModuleOptions = {
     database: process.env.TYPEORM_DATABASE,
     entities: [__dirname + '/../**/**.entity{.ts,.js}'],
     synchronize: false,
+    cli: {
+        migrationsDir: __dirname + '/../migration',
+    },
+    migrationsRun: true,
+
 };
 
 export default config;

@@ -2,13 +2,13 @@ import {CreateProspectDto} from './create.prospect.dto';
 import {Controller, Get, Post, HttpException, HttpStatus, Query} from '@nestjs/common';
 import {ProspectService} from './prospect.service';
 import {VerifyDomainDto} from './verify-domain.prospect.dto';
-import {ReplayIoService} from './replay-io/replay-io.service';
+import {ReplyIoService} from './reply-io/reply-io.service';
 
 @Controller('prospects')
 export class ProspectController {
     constructor(
         private readonly prospectService: ProspectService,
-        private readonly replayIoService: ReplayIoService,
+        private readonly replayIoService: ReplyIoService,
     ) {
     }
 

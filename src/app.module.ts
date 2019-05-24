@@ -17,7 +17,7 @@ import {BullQueueModule} from './bull-queue/bull-queue.module';
         AuthModule,
         TypeOrmModule.forRoot(ormconfig),
         ProspectModule,
-        // FieldModule,
+        FieldModule,
         // BullQueueModule
     ],
     controllers: [AppController],
