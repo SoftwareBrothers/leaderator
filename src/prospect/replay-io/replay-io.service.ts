@@ -1,13 +1,19 @@
 import {HttpService, Injectable} from '@nestjs/common';
 import {Observable} from 'rxjs';
-import {AxiosResponse} from 'axios';
+import {map} from 'rxjs/operators';
+import {Prospect} from '../prospect.entity';
 
 @Injectable()
 export class ReplayIoService {
     constructor(private readonly httpService: HttpService) {
     }
 
-    listContacts(): Observable<AxiosResponse> {
-        return this.httpService.get('/people');
+    listContacts(): Observable<Prospect[]> {
+        return this.httpService.get('/people').pipe(
+            map(response => response.data),
+        );
+    }
+
+    create() {
     }
 }

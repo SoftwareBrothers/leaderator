@@ -27,9 +27,7 @@ export class ProspectController {
 
     @Get('list')
     async list(): Promise<any> {
-        return this.replayIoService.listContacts().pipe(
-            map(response => response.data),
-        );
+        return this.replayIoService.listContacts();
     }
 
 }

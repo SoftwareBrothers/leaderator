@@ -6,13 +6,14 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 import {ProspectModule} from './prospect/prospect.module';
 import { ConfigModule } from 'nestjs-config';
 import * as path from 'path';
+import ormconfig from './config/orm.config';
 
 @Module({
     imports: [
         ConfigModule.load(path.resolve(__dirname, 'config', '**/!(*.d).{ts,js}')),
         UserModule,
         AuthModule,
-        TypeOrmModule.forRoot(),
+        TypeOrmModule.forRoot(ormconfig),
         ProspectModule,
     ],
     controllers: [AppController],
