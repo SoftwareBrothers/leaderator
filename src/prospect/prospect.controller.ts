@@ -2,7 +2,7 @@ import {Controller, Get, HttpException, HttpStatus, Query} from '@nestjs/common'
 import { ProspectService } from './prospect.service';
 import {VerifyDomainDto} from "./verify-domain.prospect.dto";
 
-@Controller('prospect')
+@Controller('prospects')
 export class ProspectController {
 
   constructor(private readonly prospectService: ProspectService) {}
