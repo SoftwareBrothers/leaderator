@@ -19,7 +19,7 @@ services:
       - "db:mysql"
     ports:
       - "3000:3000"
-    command: "npm start"
+    command: "yarn start"
     depends_on:
       - db
     env_file:
